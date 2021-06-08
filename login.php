@@ -4,19 +4,33 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
+    <link href="./style.css" rel="stylesheet">
     <title>Login Page</title>
 </head>
-<body>
-    <h1>Login Page</h1>
-    <form action="login.php" method="post">
-    Username: <input type="text" name="username"> <br>
-    Password: <input type="password" name="password">
-    <input type="submit">
-    </form>
+<body class="login-page">
+    <div class="login-box">
+        <form action="login.php" method="post">
+            <h2>Login</h2> <br/>
+                <label>Username:</label><br/>
+                 <input type="text" name="username" placeholder="Username..." required> <br/>
+                <label>Password:</label><br/>
+                 <input type="password" name="password" placeholder="Password..." required><br/>
+                <button class="login" type="submit" name="login">Log In</button>
+        </form>
+    </div>
 
     <?php
 
+    $server = "localhost";
+    $username = "root";
+    $password = "";
+    $name = "agptest";
+
+    $conn = mysqli_connect($server, $username, $password, $name);
+
+    if (!$conn) { 
+        die("Connection FAILED!: ") . mysqli_connect_error();
+    } 
 
     ?>
 </body>
